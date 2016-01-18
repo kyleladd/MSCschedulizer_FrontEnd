@@ -51,6 +51,9 @@ a.main-button, input[type="submit"] {
 	color: #0bb586;
 }
 
+.navbar .search-form form input{
+	border: 2px solid #0bb586;
+}
 .navbar-default .navbar-nav > li > a:after {
 	background-color: #0bb586;
 }
@@ -75,7 +78,7 @@ ul.breadcrumbs li a:hover {
 	background-color: #0bb586;
 }
 
-.team-member .member-socail a.mail:hover i {
+.team-member .member-social a.mail:hover i {
 	background-color: #0bb586;
 }
 

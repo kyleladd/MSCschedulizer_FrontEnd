@@ -46,7 +46,7 @@ body {
     line-height: 21px;
 	font-weight: 300;
 	color: #666;
-	background: url(../images/patterns/1.png) fixed repeat;
+	background: url(../images/patterns/8.png) fixed repeat;
 }
 strong, b {
 	font-weight: 600;
@@ -124,7 +124,7 @@ h6 {
 
 p {
     color: #666;
-    font-size: 13px;
+    font-size: 14px;
     font-family: 'Open Sans', sans-serif;
     line-height: 22px;
     margin: 0;
@@ -533,6 +533,10 @@ ul.social-list li a.instgram:hover {
 	background-color: #4D4F54;
 }
 
+ul.social-list li a.github:hover {
+    background-color: #4D4F54;
+}
+
 ul.social-list li a.vimeo:hover {
 	background-color: #87D3E0;
 }
@@ -582,6 +586,8 @@ ul.social-list li:last-child a i {
     -moz-transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
+    font-weight: 700;
+    font-size: 22px;
 }
 
 .navbar-default .navbar-nav {
@@ -1633,7 +1639,7 @@ input[type="submit"] {
 
 .pricing-tables .pricing-table:hover {
 	z-index: 2;
-	top: -3px;
+	/*top: -3px;*/
 	box-shadow: 0 0 8px rgba(0,0,0,0.1);
 	-moz-box-shadow: 0 0 8px rgba(0,0,0,0.1);
 	-webkit-box-shadow: 0 0 8px rgba(0,0,0,0.1);
@@ -2715,11 +2721,11 @@ ul.icons-list li i {
 	padding: 15px 6px 12px 6px;
 }
 
-.team-member .member-socail {
+.team-member .member-social {
 	//text-align: center;
 }
 
-.team-member .member-socail a i {
+.team-member .member-social a i {
 	color: #fff;
 	width: 28px;
 	height: 28px;
@@ -2737,31 +2743,35 @@ ul.icons-list li i {
     -o-transition: all 0.2s ease-in-out;
 }
 
-.team-member .member-socail a.facebook:hover i {
+.team-member .member-social a.facebook:hover i {
 	background-color: #507CBE;
 }
 
-.team-member .member-socail a.twitter:hover i {
+.team-member .member-social a.twitter:hover i {
 	background-color: #63CDF1;
 }
 
-.team-member .member-socail a.gplus:hover i {
+.team-member .member-social a.gplus:hover i {
 	background-color: #F16261;
 }
 
-.team-member .member-socail a.dribbble:hover i {
+.team-member .member-social a.dribbble:hover i {
 	background-color: #E46387;
 }
 
-.team-member .member-socail a.linkedin:hover i {
+.team-member .member-social a.github:hover i {
+	background-color: #4D4F54;
+}
+
+.team-member .member-social a.linkedin:hover i {
 	background-color: #90CADD;
 }
 
-.team-member .member-socail a.flickr:hover i {
+.team-member .member-social a.flickr:hover i {
 	background-color: #E474AF;
 }
 
-.team-member .member-socail a.instagramm:hover i {
+.team-member .member-social a.instagramm:hover i {
 	background-color: #4D4F54;
 }
 
@@ -2819,16 +2829,16 @@ ul.icons-list li i {
 	display: none;
 }
 
-.team-member.modern .member-socail {
+.team-member.modern .member-social {
 	margin-top: 15px;
 }
 
-.team-member.modern .member-socail a i {
+.team-member.modern .member-social a i {
 	background-color: transparent;
 	color: #666;
 }
 
-.team-member.modern .member-socail a:hover i {
+.team-member.modern .member-social a:hover i {
 	color: #fff;
 }
 
@@ -4096,7 +4106,7 @@ ul.post-meta li, ul.post-meta li a {
 
 footer {
 	background-color: #222;
-    padding-top: 60px;
+    /*padding-top: 60px;*/
 	border-top: 4px solid #555;
 	color: #ccc;
 }
@@ -4196,6 +4206,10 @@ footer a:hover {
 
 .social-widget ul.social-icons li a.instgram:hover i {
 	background-color: #4D4F54;
+}
+
+.social-widget ul.social-icons li a.github:hover i {
+    background-color: #4D4F54;
 }
 
 .social-widget ul.social-icons li a.vimeo:hover i {
