@@ -473,10 +473,64 @@ $(document).ready(function ($) {
 		}
 		
 		init();
-		
-		
-		
+		/* ----------------- End JS Document ----------------- */
+var initNav = function(){
+/**
+ * Navigation Menu
+ */
+ $.ajax({url:"includes/main-nav.html",cache:true}).done(function(html){
+ 	$("#main-nav").html(html);
+	var current_path = window.location.pathname.split('/').pop();
+	$( "#main-nav li a" ).each(function() {
+		if(current_path == $( this ).attr("href") || (current_path == "" && $( this ).attr("href") == "index.html")){
+			$( this ).addClass( "active" );
+		}
+	});
+	document.getElementById("main-nav-mobile").innerHTML = document.getElementById("main-nav").innerHTML;
+	/*----------------------------------------------------*/
+	/*	Nav Menu & Search
+	/*----------------------------------------------------*/
+	
+	$(".nav > li:has(ul)").addClass("drop");
+	$(".nav > li.drop > ul").addClass("dropdown");
+	$(".nav > li.drop > ul.dropdown ul").addClass("sup-dropdown");
+	
+	$('.show-search').click(function() {
+		$('.search-form').fadeIn(300);
+		$('.search-form input').focus();
+	});
+	$('.search-form input').blur(function() {
+		$('.search-form').fadeOut(300);
+	});
+	/**
+	 * Slick Nav 
+	 */
+	$('.wpb-mobile-menu').slicknav({
+	  prependTo: '.navbar-header',
+	  parentTag: 'margo',
+	  allowParentLinks: true,
+	  duplicate: false,
+	  label: '',
+	  closedSymbol: '<i class="fa fa-angle-right"></i>',
+	  openedSymbol: '<i class="fa fa-angle-down"></i>',
+	});
+	headerEle();
+ });
+};
+var initHead = function(callback){
+	$.ajax({url:"includes/header.html",cache:true}).done(function(html){
+		$("header").html(html);
+		callback();
+	});
+};
+initHead(initNav);
+//Init Footer
+  $.ajax({url:"includes/footer.html",cache:true}).done(function(html){
+ 	$("#footer-container").html(html);
+ 	$(".copy-year").text(new Date().getFullYear());
+ });
 	})();
+
 });
 
 
@@ -523,58 +577,3 @@ jQuery(window).load(function(){
 	});
 	
 });
-/* ----------------- End JS Document ----------------- */
-var initNav = function(){
-/**
- * Navigation Menu
- */
- $.ajax({url:"includes/main-nav.html",cache:true}).done(function(html){
- 	$("#main-nav").html(html);
-	var current_path = window.location.pathname.split('/').pop();
-	$( "#main-nav li a" ).each(function() {
-		if(current_path == $( this ).attr("href") || (current_path == "" && $( this ).attr("href") == "index.html")){
-			$( this ).addClass( "active" );
-		}
-	});
-	document.getElementById("main-nav-mobile").innerHTML = document.getElementById("main-nav").innerHTML;
-	/*----------------------------------------------------*/
-	/*	Nav Menu & Search
-	/*----------------------------------------------------*/
-	
-	$(".nav > li:has(ul)").addClass("drop");
-	$(".nav > li.drop > ul").addClass("dropdown");
-	$(".nav > li.drop > ul.dropdown ul").addClass("sup-dropdown");
-	
-	$('.show-search').click(function() {
-		$('.search-form').fadeIn(300);
-		$('.search-form input').focus();
-	});
-	$('.search-form input').blur(function() {
-		$('.search-form').fadeOut(300);
-	});
-	/**
-	 * Slick Nav 
-	 */
-	$('.wpb-mobile-menu').slicknav({
-	  prependTo: '.navbar-header',
-	  parentTag: 'margo',
-	  allowParentLinks: true,
-	  duplicate: false,
-	  label: '',
-	  closedSymbol: '<i class="fa fa-angle-right"></i>',
-	  openedSymbol: '<i class="fa fa-angle-down"></i>',
-	});
- });
-};
-var initHead = function(callback){
-	$.ajax({url:"includes/header.html",cache:true}).done(function(html){
-		$("header").html(html);
-		callback();
-	});
-};
-initHead(initNav);
-//Init Footer
-  $.ajax({url:"includes/footer.html",cache:true}).done(function(html){
- 	$("#footer-container").html(html);
- 	$(".copy-year").text(new Date().getFullYear());
- });
