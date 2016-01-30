@@ -1,0 +1,12 @@
+{
+  "name": "mscschedulizer_frontend",
+  "version": "0.0.0",
+  "homepage": "https://github.com/kyleladd/MSCschedulizer_FrontEnd",
+  "authors": [
+    "Kyle Ladd <kladd6@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "fullcalendar": "~2.6.0"
+  }
+}
