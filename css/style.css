@@ -498,9 +498,9 @@ ul.social-list li a {
     -o-transition: all 0.2s ease-in-out;
 }
 
-ul.social-list li a:hover {
+/*ul.social-list li a:hover {
 	color: #fff;
-}
+}*/
 
 ul.social-list li a.facebook:hover {
 	background-color: #507CBE;
@@ -3942,10 +3942,10 @@ ul.post-meta li, ul.post-meta li a {
 	color: #666;
 }
 
-.sidebar .widget {
+/*.sidebar .widget {
     overflow: hidden;
     margin-bottom: 50px;
-}
+}*/
 
 .sidebar .widget ul {
 	margin: 0;
@@ -4007,9 +4007,16 @@ ul.post-meta li, ul.post-meta li a {
 	background-color: #ddd;
 	margin: 0;
 }
+/*ul.selectpicker li a{
+	padding:8px 12px;
+}
+ul.selectpicker li a:hover {
+	padding-left: 16px;
+}*/
 
 .widget-categories ul li a {
-	padding: 8px 0;
+	/*padding: 8px 0;*/
+	padding: 8px 12px;
     text-decoration: none;
     display: block;
 	border-bottom: 1px solid #eee;
@@ -4019,12 +4026,13 @@ ul.post-meta li, ul.post-meta li a {
     -o-transition: all 0.2s ease-in-out;
 }
 
-.widget-categories ul li:first-child a {
+/*.widget-categories ul li:first-child a {
 	padding-top: 0;
 }
-
+*/
 .widget-categories ul li a:hover {
-	padding-left: 8px;
+	/*padding-left: 8px;*/
+	padding-left: 20px;
 }
 
 .sidebar .widget-popular-posts li {
@@ -5795,4 +5803,25 @@ ul.slicknav_nav{
 }
 .fc{
     margin-bottom:20px;
+}
+.bootstrap-select .dropdown-menu.open{
+	z-index:9999999;
+}
+
+.widget{
+	padding-top: 1em;
+}
+.sidebar .tagcloud a{
+	margin:2px;
+}
+.fc-body{
+	border-top:2px solid #eee;
+}
+@media only screen and (max-width: 479px) { 
+	.fc-time-grid-event .fc-time span{
+		font-size:xx-small !important;
+	}
+	.fc-event {
+	    font-size: x-small !important;
+	}
 }

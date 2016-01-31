@@ -22,6 +22,9 @@
 
   <!-- Slicknav -->
   <link rel="stylesheet" type="text/css" href="css/slicknav.css" media="screen">
+  
+  <!-- Bootstrap Select -->
+  <link rel="stylesheet" href="bower_components/bootstrap-select/dist/css/bootstrap-select.min.css">
 
   <!-- Margo CSS Styles  -->
   <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
@@ -40,6 +43,7 @@
   <script type="text/javascript" src="js/jquery.migrate.js"></script>
   <script type="text/javascript" src="js/modernizrr.js"></script>
   <script type="text/javascript" src="asset/js/bootstrap.min.js"></script>
+  <script src="bower_components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
   <script type="text/javascript" src="js/jquery.fitvids.js"></script>
   <script type="text/javascript" src="js/owl.carousel.min.js"></script>
   <script type="text/javascript" src="js/nivo-lightbox.min.js"></script>
@@ -49,7 +53,7 @@
   <script type="text/javascript" src="js/jquery.textillate.js"></script>
   <script type="text/javascript" src="js/jquery.lettering.js"></script>
   <script type="text/javascript" src="js/jquery.easypiechart.min.js"></script>
-  <script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
+
   <script type="text/javascript" src="js/jquery.parallax.js"></script>
   <script type="text/javascript" src="js/mediaelement-and-player.js"></script>
   <script type="text/javascript" src="js/jquery.slicknav.js"></script>
@@ -79,7 +83,7 @@
           <div class="row sidebar-page">
           
                     <!--Sidebar-->
-          <div class="col-sm-3 col-xs-5 sidebar left-sidebar">
+          <div class="col-sm-3 col-xs-12 sidebar left-sidebar">
             
             <!-- Search Widget -->
             <div class="widget widget-search">
@@ -99,14 +103,13 @@
             <!-- Categories Widget -->
             <div class="widget widget-categories">
               <h4>Departments <span class="head-line"></span></h4>
-              <ul id="departments" class="loader">
-              </ul>
+              <select id="departments" class="selectpicker col-xs-12" data-live-search="true"><!-- Data loaded from api --></select>
             </div>
 
           </div>
           <!--End sidebar-->
           <!-- Page Content -->
-          <div class="col-sm-9 col-xs-7 page-content">
+          <div class="col-sm-9 col-xs-12 page-content">
             
             <!-- Classic Heading -->
             <h4 class="classic-title"><span>Courses</span></h4>
