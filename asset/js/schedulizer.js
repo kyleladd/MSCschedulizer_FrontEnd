@@ -2,6 +2,8 @@ var mscSchedulizer = mscSchedulizer === undefined ? {} : mscSchedulizer;
 $.extend(mscSchedulizer, {
     classes_selected: JSON.parse(localStorage.getItem('classes_selected')) || [],
     favorite_schedules: JSON.parse(localStorage.getItem('favorite_schedules')) || [],
+    gen_schedules:[],
+    num_loaded:0,
     listContainsDictionaryIndex: function(list,keyvaluelist){
         try{
             var numcriterion = 0;
@@ -181,7 +183,7 @@ $.extend(mscSchedulizer, {
             $(mscSchedulizer.schedules).html("No schedule combinations");
         }
         else{
-            $(mscSchedulizer.schedules).html(schedules.length + " combinations");
+            var outputSchedules = schedules.length + " combinations";
             $.each(schedules, function(i, schedule){
                 var events = [];
                 var earlyStartTime = 2400;
@@ -202,16 +204,31 @@ $.extend(mscSchedulizer, {
                             });
                         });
                     });
+                    schedule.earlyStartTime = earlyStartTime;
+                    schedule.lateEndTime = lateEndTime;
+                    schedule.events = events;
                 });
-                $(mscSchedulizer.schedules).append("<div id=\"schedule_" + i + "\"></div>");
-                $('#schedule_' + i).fullCalendar({                
+                outputSchedules += "<div id=\"schedule_" + i + "\"></div>";
+            });
+            mscSchedulizer.gen_schedules = schedules;
+            $(mscSchedulizer.schedules).html(outputSchedules);
+            mscSchedulizer.initSchedules(0,mscSchedulizer.numToLoad);
+        }
+    },
+    initSchedules:function(start,count){
+
+        for (i = 0; i < count ; i++) { 
+            var num = start + i;
+            console.log(num);
+            if(mscSchedulizer.gen_schedules[num] != undefined){
+                $('#schedule_' + num).fullCalendar({                
                     editable: false,
                     handleWindowResize: true,
                     weekends: false, // Hide weekends
                     defaultView: 'agendaWeek', // Only show week view
                     header: false, // Hide buttons/titles
-                    minTime: mscSchedulizer.timeFormat(earlyStartTime), // Start time for the calendar
-                    maxTime: mscSchedulizer.timeFormat(lateEndTime), // End time for the calendar
+                    minTime: mscSchedulizer.timeFormat(mscSchedulizer.gen_schedules[num].earlyStartTime), // Start time for the calendar
+                    maxTime: mscSchedulizer.timeFormat(mscSchedulizer.gen_schedules[num].lateEndTime), // End time for the calendar
                     columnFormat: {
                         week: 'ddd' // Only show day of the week names
                     },
@@ -219,56 +236,22 @@ $.extend(mscSchedulizer, {
                     height:'auto',
                     // allDayText: 'TBD',
                     allDaySlot: false,
-                    events: events
+                    events: mscSchedulizer.gen_schedules[num].events
                 });
-                // Separate out courses that do not have meeting times and list them below the calendar
-                // if (no_meeting_courses.length > 0){
-                    // $("#schedule_" + i).append("<p>Online/TBD: BSAD 116, CITA 110</p>");
-                // }
-            });
+                mscSchedulizer.num_loaded++;
+            }
         }
+    },
+    isScrolledIntoView:function(elem) {
+        var $elem = $(elem);
+        var $window = $(window);
+
+        var docViewTop = $window.scrollTop();
+        var docViewBottom = docViewTop + $window.height();
+
+        var elemTop = $elem.offset().top;
+        var elemBottom = elemTop + $elem.height();
+        // && for entire element || for any part of the element
+        return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
     }
-});
-
-$(function(){ 
-    mscSchedulizer.loadSelections();
-    if(location.pathname.substr(location.pathname.lastIndexOf("/")+1) == "select-classes.html"){
-        mscSchedulizer.getDepartments();
-        mscSchedulizer.getDepartmentCourses();
-    }  
-    // Department selected - View Department Courses
-    $('#departments').on('changed.bs.select', function (e, clickedIndex, newValue, oldValue) {
-        if($('#departments').val() != ""){
-            $(mscSchedulizer.department_class_list).addClass("loader");
-            //Get From Endpoint - Department Courses
-            mscSchedulizer.getDepartmentCourses($('#departments').val());
-        }
-    });
-
-    // Course selected - Add Course
-    $(mscSchedulizer.department_class_list).on("click", "a.a_course", function (event) {
-        event.preventDefault();
-        //Add Course
-        var course = JSON.parse(this.getAttribute('data-value'));
-        if (mscSchedulizer.listContainsDictionaryIndex(mscSchedulizer.classes_selected,{id:course.id}) === -1) {
-            mscSchedulizer.classes_selected.push(course);
-            localStorage.setItem('classes_selected', JSON.stringify(mscSchedulizer.classes_selected));
-            //reload selections area
-            mscSchedulizer.loadSelections();
-        }
-    });
-
-     // Remove Course Selections
-    $(mscSchedulizer.course_selections).on("click", "a.a_selection", function (event) {
-        event.preventDefault();
-        // //Remove Course
-        var course = JSON.parse(this.getAttribute('data-value'));
-        var index = mscSchedulizer.listContainsDictionaryIndex(mscSchedulizer.classes_selected,{id:course.id});
-        if (index != -1) {
-            mscSchedulizer.classes_selected.splice(index,1);
-            localStorage.setItem('classes_selected', JSON.stringify(mscSchedulizer.classes_selected));
-            //reload selections area
-            mscSchedulizer.loadSelections();
-        }
-    });
 });
