@@ -498,9 +498,9 @@ ul.social-list li a {
     -o-transition: all 0.2s ease-in-out;
 }
 
-ul.social-list li a:hover {
+/*ul.social-list li a:hover {
 	color: #fff;
-}
+}*/
 
 ul.social-list li a.facebook:hover {
 	background-color: #507CBE;
@@ -3942,10 +3942,10 @@ ul.post-meta li, ul.post-meta li a {
 	color: #666;
 }
 
-.sidebar .widget {
+/*.sidebar .widget {
     overflow: hidden;
     margin-bottom: 50px;
-}
+}*/
 
 .sidebar .widget ul {
 	margin: 0;
@@ -4007,9 +4007,16 @@ ul.post-meta li, ul.post-meta li a {
 	background-color: #ddd;
 	margin: 0;
 }
+/*ul.selectpicker li a{
+	padding:8px 12px;
+}
+ul.selectpicker li a:hover {
+	padding-left: 16px;
+}*/
 
 .widget-categories ul li a {
-	padding: 8px 0;
+	/*padding: 8px 0;*/
+	padding: 8px 12px;
     text-decoration: none;
     display: block;
 	border-bottom: 1px solid #eee;
@@ -4019,12 +4026,13 @@ ul.post-meta li, ul.post-meta li a {
     -o-transition: all 0.2s ease-in-out;
 }
 
-.widget-categories ul li:first-child a {
+/*.widget-categories ul li:first-child a {
 	padding-top: 0;
 }
-
+*/
 .widget-categories ul li a:hover {
-	padding-left: 8px;
+	/*padding-left: 8px;*/
+	padding-left: 20px;
 }
 
 .sidebar .widget-popular-posts li {
@@ -5731,4 +5739,89 @@ ul.footer-nav li a:hover {
 .loader-large:after {
   width: 3em;
   height: 3em;
+}
+
+ul.slicknav_nav{
+    overflow:hidden;
+}
+/*.fc-unthemed .fc-today {
+     background: none; 
+}*/
+.fc-today {
+  opacity: 0;
+  border: none;
+}
+
+/* Styling for each event from Schedule */
+.fc-time-grid-event.fc-v-event.fc-event {
+  border-radius: 4px;
+  border: none;
+  padding: 5px;
+  opacity: .65;
+  left: 5% !important;
+  right: 5% !important;
+}
+
+/* Bolds the name of the event and inherits the font size */
+.fc-event {
+  font-size: inherit !important;
+  font-weight: bold !important;
+}
+
+/* Remove the header border from Schedule */
+.fc td, .fc th {
+  border-style: none !important;
+  border-width: 1px !important;
+  padding: 0 !important;
+  vertical-align: top !important;
+}
+
+/* Inherits background for each event from Schedule. */
+.fc-event .fc-bg {
+  z-index: 1 !important;
+  background: inherit !important;
+  opacity: .25 !important;
+}
+
+/* Normal font weight for the time in each event */
+.fc-time-grid-event .fc-time {
+  font-weight: normal !important;
+}
+
+/* Apply same opacity to all day events */
+.fc-ltr .fc-h-event.fc-not-end, .fc-rtl .fc-h-event.fc-not-start {
+  opacity: .65 !important;
+  margin-left: 12px !important;
+  padding: 5px! important;
+}
+
+/* Apply same opacity to all day events */
+.fc-day-grid-event.fc-h-event.fc-event.fc-not-start.fc-end {
+  opacity: .65 !important;
+  margin-left: 12px !important;
+  padding: 5px! important;
+}
+.fc{
+    margin-bottom:20px;
+}
+.bootstrap-select .dropdown-menu.open{
+	z-index:9999999;
+}
+
+.widget{
+	padding-top: 1em;
+}
+.sidebar .tagcloud a{
+	margin:2px;
+}
+.fc-body{
+	border-top:2px solid #eee;
+}
+@media only screen and (max-width: 479px) { 
+	.fc-time-grid-event .fc-time span{
+		font-size:xx-small !important;
+	}
+	.fc-event {
+	    font-size: x-small !important;
+	}
 }

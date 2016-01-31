@@ -4,7 +4,7 @@
         <div class="copyright-section">
           <div class="row">
             <div class="col-md-6">
-              <p>&copy; <span class="copy-year"></span> Kyle Ladd - All Rights Reserved</p>
+              <p>&copy; <span class="copy-year"></span> <a href="http://kyleladd.us">Kyle Ladd</a> - All Rights Reserved</p>
             </div>
             <!-- .col-md-6 -->
             <div class="col-md-6">
@@ -35,3 +35,8 @@
   <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
   <script type="text/javascript" src="asset/js/config.js"></script>
   <script type="text/javascript" src="asset/js/schedulizer.js"></script>
+  <script>
+    if(location.pathname.substr(location.pathname.lastIndexOf("/")+1) == "generate.html"){
+      mscSchedulizer.getSchedules(mscSchedulizer.createSchedules);
+    }
+  </script>
